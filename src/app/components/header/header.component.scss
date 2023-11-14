@@ -1,0 +1,25 @@
+/* header.component.css */
+header {
+  min-height: 6rem;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    width: 6rem;
+  }
+
+  @media only screen and (min-width: 375px) {
+    .logo {
+      width: 3rem;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .logo {
+      width: 4rem;
+    }
+  }
+}
