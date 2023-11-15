@@ -8,18 +8,18 @@ header {
   align-items: center;
 
   .logo {
-    width: 6rem;
+    width: 26rem;
   }
 
-  @media only screen and (min-width: 375px) {
-    .logo {
-      width: 3rem;
-    }
-  }
-
+  
   @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+
+  @media only screen and (min-width: 1900px) {
     .logo {
-      width: 4rem;
+      width: 35rem;
     }
   }
 }
