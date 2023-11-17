@@ -1,8 +1,10 @@
 <div class="card-container">
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
+  <app-card *ngFor="let property of properties"
+    [property]="property"
+  ></app-card>
   <div class="pagination">
-   <app-button [buttonText]="buttonText"></app-button>
+    <app-button (click)="loadMoreResults()" [buttonText]="buttonText"></app-button>
   </div>
+  <!-- TODO agregar loader cuando carga mas propiedades -->
+  <!-- TODO agregar hover al bonton -->
 </div>

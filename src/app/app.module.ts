@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { CardComponent } from './components/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
+import { ThousandsSeparatorPipe } from './utils/pipes/thousands-separator.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ButtonComponent } from './components/shared/button/button.component';
     DashboardComponent,
     DetailComponent,
     CardComponent,
-    ButtonComponent
+    ButtonComponent,
+    ThousandsSeparatorPipe
   ],
   imports: [
     BrowserModule,

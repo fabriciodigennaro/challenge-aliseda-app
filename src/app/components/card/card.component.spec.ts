@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { CardComponent } from './card.component';
+import { ThousandsSeparatorPipe } from 'src/app/utils/pipes/thousands-separator.pipe';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -9,7 +10,7 @@ describe('CardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CardComponent]
+      declarations: [CardComponent, ThousandsSeparatorPipe]
     });
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
