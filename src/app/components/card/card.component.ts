@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Data } from 'src/app/interfaces/property-api-response';
-import { Property } from 'src/app/interfaces/property-search-result';
+
+import { Property } from 'src/app/interfaces/properties-search-result';
 
 @Component({
   selector: 'app-card',

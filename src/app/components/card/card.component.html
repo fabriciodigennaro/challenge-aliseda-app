@@ -2,11 +2,11 @@
   <img src="{{ getImageUri() }}" alt="foto de la propiedad" />
   <div class="body">
     <div class="product-details">
-      <div class="price">
+      <div class="display-flex-align-center flex-row-justify-start">
         <div class="actual-price">
           {{ property.price | thousandsSeparator }} €
         </div>
-        <div *ngIf="property.isPriceReduced" class="discount text-red">
+        <div *ngIf="property.isPriceReduced" class="display-flex-align-center text-red">
           <div class="previous-price">
             {{ property.previousPrice | thousandsSeparator }} €
           </div>
