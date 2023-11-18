@@ -7,7 +7,7 @@ import { HttpService } from './services/http.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PropertiesSearchComponent } from './components/properties-search/properties-search.component';
 import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
 import { CardComponent } from './components/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
@@ -17,7 +17,7 @@ import { ThousandsSeparatorPipe } from './utils/pipes/thousands-separator.pipe';
   declarations: [
     AppComponent,
     HeaderComponent,
-    DashboardComponent,
+    PropertiesSearchComponent,
     PropertyDetailComponent,
     CardComponent,
     ButtonComponent,

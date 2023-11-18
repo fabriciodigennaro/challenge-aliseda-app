@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DashboardComponent } from './dashboard.component';
+import { PropertiesSearchComponent } from './properties-search.component';
 import { ButtonComponent} from '../shared/button/button.component';
 
 describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+  let component: PropertiesSearchComponent;
+  let fixture: ComponentFixture<PropertiesSearchComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent, ButtonComponent],
+      declarations: [PropertiesSearchComponent, ButtonComponent],
       imports: [HttpClientTestingModule],
     });
 
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(PropertiesSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

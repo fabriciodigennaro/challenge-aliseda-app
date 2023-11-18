@@ -5,11 +5,11 @@ import { Property } from 'src/app/interfaces/properties-search-result';
 import { PropertyService } from 'src/app/services/property.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-properties-search',
+  templateUrl: './properties-search.component.html',
+  styleUrls: ['./properties-search.component.scss'],
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class PropertiesSearchComponent implements OnInit, OnDestroy {
   buttonText: string = 'Ver 12 inmuebles más';
   properties: Property[] = [];
   nextPage: number = 2;
