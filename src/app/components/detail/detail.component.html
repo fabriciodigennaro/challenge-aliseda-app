@@ -1,28 +1,47 @@
-<article>
+<article *ngIf="!isFetching">
   <img src="../../../assets/mock-img.jpg" alt="foto de vivienda" />
   <div class="content">
     <section class="header-text">
-      <p class="reference"><strong>Ref: </strong>VPA0000198584</p>
-      <p class="price">3.950.000 €</p>
+      <p class="reference"><strong>Ref: </strong>{{ detail.id }}</p>
+      <div class="display-flex-align-center flex-row-justify-start price-box">
+        <div class="price">{{ detail.price | thousandsSeparator }} €</div>
+        <div
+          *ngIf="detail.isPriceReduced"
+          class="display-flex-align-center text-red"
+        >
+          <div class="previous-price">
+            {{ detail.previousPrice | thousandsSeparator }} €
+          </div>
+          <img
+            src="../../../assets/icons/arrow_downward_red.svg"
+            alt="icono de descuento"
+          />
+          <p>{{ detail.discount }}%</p>
+        </div>
+      </div>
       <p class="fees">Gastos e impuestos no incluidos</p>
       <p class="title">
-        Chalet en venta en urb Cerro Artola, Benahavís, Málaga
+        {{ detail.title }}
       </p>
     </section>
 
     <section class="body-text">
       <div class="location">
         <img src="../../../assets/icons/location.svg" alt="ubicaion" />
-        <span>Málaga · Benhavía</span>
+        <span
+          >{{ detail.province | titlecase }} ·
+          {{ detail.city | titlecase }}</span
+        >
       </div>
 
       <div class="specifications">
         <img src="../../../assets/icons/dimensions.svg" alt="dimesiones" />
-        <span>525 m²</span>
+        <span>{{ detail.constructedArea }} m²</span>
         <img src="../../../assets/icons/bedroom.svg" alt="habitaciones" />
-        <span>7 habitaciones</span>
+        <!-- TODO create method to generate correct copy -->
+        <span>{{ detail.bedrooms }} habitaciones</span>
         <img src="../../../assets/icons/bathroom.svg" alt="baños" />
-        <span>3 baños</span>
+        <span>{{ detail.bathrooms }} baños</span>
       </div>
     </section>
 
@@ -30,17 +49,15 @@
       <p class="header">Descripción</p>
 
       <p class="description">
-        La villa en venta en Monte Halcones, Benahavis, es una propiedad de lujo
-        con una ubicación excepcional y hermosas vistas panorámicas del valle y
-        la costa mediterránea. Se encuentra en una zona residencial tranquila y
-        prestigiosa, rodeada por tres campos de golf de renombre: La Zagaleta,
-        Los Arqueros y La Quinta. A su vez, ofrece fácil acceso a Puerto Banús y
-        San Pedro Alcántara, donde se encuentran diversos servicios y lugares de
-        interés. La villa tiene una superficie construida de aproximadamente 525
-        m2 y está asentada sobre una parcela de unos 1.103 m2. Su estilo
-        arquitectónico combina lo clásico con lo contemporáneo, y se desarrolla
-        en tres niveles.
+        {{ detail.description }}
       </p>
     </section>
   </div>
+
+  <!-- TODO add functionality -->
+  <app-button class="back-button" [buttonText]="buttonText"></app-button>
 </article>
+
+<div class="loader">
+  <img *ngIf="isFetching" src="../../../assets/loader.svg" alt="loader" />
+</div>

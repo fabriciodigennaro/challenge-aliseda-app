@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailComponent } from './detail.component';
+import { PropertyDetailComponent } from './detail.component';
 
-describe('DetailComponent', () => {
-  let component: DetailComponent;
-  let fixture: ComponentFixture<DetailComponent>;
+describe('PropertyDetailComponent', () => {
+  let component: PropertyDetailComponent;
+  let fixture: ComponentFixture<PropertyDetailComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DetailComponent]
+      declarations: [PropertyDetailComponent]
     });
-    fixture = TestBed.createComponent(DetailComponent);
+    fixture = TestBed.createComponent(PropertyDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
