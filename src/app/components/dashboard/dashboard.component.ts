@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Data } from 'src/app/interfaces/property-api-response';
-import { Property } from 'src/app/interfaces/property-search-result';
+import { Property } from 'src/app/interfaces/properties-search-result';
 import { PropertyService } from 'src/app/services/property.service';
 
 @Component({
@@ -17,7 +17,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private _propertyService: PropertyService) {
+  constructor(
+    private _propertyService: PropertyService,
+    private _router: Router
+  ) {
     this.properties = [];
   }
 
@@ -49,5 +52,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   loadMoreResults(): void {
     this.getProperties(this.nextPage);
     ++this.nextPage;
+  }
+
+  goToDetail(property: Property): void {
+    this._router.navigate([`detalle/${property.provinceUrl}/${property.cityUrl}/${property.id}`])
   }
 }

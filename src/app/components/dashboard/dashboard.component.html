@@ -2,6 +2,7 @@
   <app-card
     *ngFor="let property of properties"
     [property]="property"
+    (click)="goToDetail(property)"
   ></app-card>
   <div class="pagination">
     <img
