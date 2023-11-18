@@ -8,7 +8,7 @@ import { HttpService } from './services/http.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DetailComponent } from './components/detail/detail.component';
+import { PropertyDetailComponent } from './components/detail/detail.component';
 import { CardComponent } from './components/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 import { ThousandsSeparatorPipe } from './utils/pipes/thousands-separator.pipe';
@@ -18,10 +18,10 @@ import { ThousandsSeparatorPipe } from './utils/pipes/thousands-separator.pipe';
     AppComponent,
     HeaderComponent,
     DashboardComponent,
-    DetailComponent,
+    PropertyDetailComponent,
     CardComponent,
     ButtonComponent,
-    ThousandsSeparatorPipe
+    ThousandsSeparatorPipe,
   ],
   imports: [
     BrowserModule,
