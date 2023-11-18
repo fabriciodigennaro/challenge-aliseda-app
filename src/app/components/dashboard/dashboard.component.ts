@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   buttonText: string = 'Ver 12 inmuebles más';
   properties: Property[] = [];
   nextPage: number = 2;
+  isFetching: boolean = false;
 
   private subscriptions: Subscription[] = [];
 
@@ -29,14 +30,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   getProperties(page: number = 1): void {
+    this.isFetching = true;
     const propertySubscription = this._propertyService
       .getProperties(page)
       .subscribe({
         next: (response) => {
           this.properties = [...this.properties, ...response.properties];
+          this.isFetching = false;
         },
         error: (error) => {
           console.error('Error fetching properties:', error);
+          this.isFetching = false;
         },
       });
     this.subscriptions.push(propertySubscription);

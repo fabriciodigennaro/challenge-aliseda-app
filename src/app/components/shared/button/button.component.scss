@@ -7,8 +7,12 @@
   padding: 0.75rem 1rem;
   align-items: center;
   border-radius: 6.1875rem;
-  background: var(--primary-primary-500);
+  background-color: var(--primary-primary-500);
   color: var(--white);
   font-size: 1rem;
   font-weight: 700;
+
+  &:hover {
+    background-color: var(--primary-primary-200);
+  }
 }
