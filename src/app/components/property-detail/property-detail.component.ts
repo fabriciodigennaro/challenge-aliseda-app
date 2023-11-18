@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PropertyDetail } from 'src/app/interfaces/property-detail';
-import { PropertyDetailService } from 'src/app/services/detail.service';
+import { PropertyDetailService } from 'src/app/services/property-detail.service';
 
 @Component({
   selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss'],
+  templateUrl: './property-detail.component.html',
+  styleUrls: ['./property-detail.component.scss'],
 })
 export class PropertyDetailComponent implements OnInit {
   buttonText: string = 'Volver';
