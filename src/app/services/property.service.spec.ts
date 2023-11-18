@@ -3,8 +3,8 @@ import { of } from 'rxjs';
 
 import { HttpService } from './http.service';
 import { PropertyService } from './property.service';
-import { RealStateApiResponse, Data, ImageResponse } from '../interfaces/property-api-response';
-import { Property, PropertySearchResult, Image } from '../interfaces/property-search-result';
+import { PropertiesSearchApiResponse, Data, ImageResponse } from '../interfaces/properties-search-api-response';
+import { Property, PropertiesSearchResult, Image } from '../interfaces/properties-search-result';
 
 describe('PropertyService', () => {
   let propertyService: PropertyService;
@@ -32,7 +32,7 @@ describe('PropertyService', () => {
   // describe('getProperties', () => {
   //   it('should call the http service with the correct URL', () => {
   //     const page = 1;
-  //     const mockApiResponse: RealStateApiResponse = /* Mock your API response here */;
+  //     const mockApiResponse: PropertiesSearchApiResponse = /* Mock your API response here */;
   //     httpServiceSpy.get.and.returnValue(of(mockApiResponse));
 
   //     propertyService.getProperties(page).subscribe();
@@ -40,14 +40,14 @@ describe('PropertyService', () => {
   //     expect(httpServiceSpy.get).toHaveBeenCalledWith(`new-search?tipo=10&page=${page}`);
   //   });
 
-  //   it('should map the API response to PropertySearchResult', () => {
+  //   it('should map the API response to PropertiesSearchResult', () => {
   //     const page = 1;
-  //     const mockApiResponse: RealStateApiResponse = /* Mock your API response here */;
-  //     const expectedPropertySearchResult: PropertySearchResult = /* Mock your expected result here */;
+  //     const mockApiResponse: PropertiesSearchApiResponse = /* Mock your API response here */;
+  //     const expectedPropertiesSearchResult: PropertiesSearchResult = /* Mock your expected result here */;
   //     httpServiceSpy.get.and.returnValue(of(mockApiResponse));
 
   //     propertyService.getProperties(page).subscribe((result) => {
-  //       expect(result).toEqual(expectedPropertySearchResult);
+  //       expect(result).toEqual(expectedPropertiesSearchResult);
   //     });
   //   });
   // });

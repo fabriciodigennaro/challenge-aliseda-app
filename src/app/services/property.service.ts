@@ -5,13 +5,13 @@ import { HttpService } from './http.service';
 import {
   Data,
   ImageResponse,
-  RealStateApiResponse,
-} from '../interfaces/property-api-response';
+  PropertiesSearchApiResponse,
+} from '../interfaces/properties-search-api-response';
 import {
   Property,
-  PropertySearchResult,
+  PropertiesSearchResult,
   Image,
-} from '../interfaces/property-search-result';
+} from '../interfaces/properties-search-result';
 
 @Injectable({
   providedIn: 'root',
@@ -19,13 +19,13 @@ import {
 export class PropertyService {
   constructor(private _httpService: HttpService) {}
 
-  getProperties(page: number = 1): Observable<PropertySearchResult> {
+  getProperties(page: number = 1): Observable<PropertiesSearchResult> {
     return this._httpService
       .get(`new-search?tipo=10&page=${page}`)
       .pipe(map((response) => this.mapResponse(response)));
   }
 
-  mapResponse(response: RealStateApiResponse): PropertySearchResult {
+  private mapResponse(response: PropertiesSearchApiResponse): PropertiesSearchResult {
     return {
       currentPage: response.current_page,
       properties: response.data.map((data) => this.mapDataToProperty(data)),
@@ -36,7 +36,7 @@ export class PropertyService {
     };
   }
 
-  mapDataToProperty(data: Data): Property {
+  private mapDataToProperty(data: Data): Property {
     return {
       isPromo: data.is_promo,
       id: data.id,
@@ -44,12 +44,14 @@ export class PropertyService {
       constructedArea: data.ConstructedArea,
       bathrooms: data.Bathrooms,
       bedrooms: data.Bedrooms,
-      price: data.Precio,
-      previousPrice: data.PrecioAnterior,
+      price: +data.Precio,
+      previousPrice: +data.PrecioAnterior,
       isPriceReduced: data.Rebajado == 1,
       streetName: data.StreetName,
       city: data.Ciudad,
+      cityUrl: data.ciudadUrl,
       provinceName: data.nombreProvincia,
+      provinceUrl: data.provinciaUrl,
       latitude: data.Latitude,
       longitude: data.Longitude,
       discount: data.DescuentoPrecio,
@@ -59,7 +61,7 @@ export class PropertyService {
     };
   }
 
-  mapImagenesToImages(images: ImageResponse): Image {
+  private mapImagenesToImages(images: ImageResponse): Image {
     return {
       pkImagen: images.PkImagen,
       fkPropiedad: images.FkPropiedad,
