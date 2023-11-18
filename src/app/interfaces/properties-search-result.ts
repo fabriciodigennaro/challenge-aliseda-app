@@ -1,4 +1,4 @@
-export interface PropertySearchResult {
+export interface PropertiesSearchResult {
     currentPage: number;
     properties: Property[];
     lastPage: number;
@@ -14,12 +14,14 @@ export interface Property {
     constructedArea: number;
     bathrooms: number;
     bedrooms: number;
-    price: string;
-    previousPrice: string;
+    price: number;
+    previousPrice: number;
     isPriceReduced: boolean;
     streetName: string;
     city: string;
+    cityUrl: string;
     provinceName: string;
+    provinceUrl: string;
     latitude: number;
     longitude: number;
     discount: number;

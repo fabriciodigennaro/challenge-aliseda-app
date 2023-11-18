@@ -1,5 +1,4 @@
-export interface RealStateApiResponse {
-    [x: string]: any;
+export interface PropertiesSearchApiResponse {
     current_page: number;
     data: Data[];
     last_page: number;
@@ -21,6 +20,8 @@ export interface Data {
     StreetName: string;
     Ciudad: string;
     nombreProvincia: string;
+    provinciaUrl: string;
+    ciudadUrl: string;
     Latitude: number;
     Longitude: number;
     DescuentoPrecio: number;
