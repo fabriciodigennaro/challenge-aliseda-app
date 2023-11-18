@@ -22,11 +22,15 @@ article {
         font-weight: 400;
       }
 
+      .price-box {
+        margin-top: 1.25rem;
+        gap: 1rem;
+      }
+
       .price {
         color: var(--Black-Aliceda);
         font-size: 1.5rem;
         font-weight: 700;
-        margin-top: 1.25rem;
       }
 
       .fees {
@@ -106,4 +110,19 @@ article {
       }
     }
   }
+
+  .back-button {
+    justify-content: center;
+    display: flex;
+  }
+}
+
+.loader {
+  display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+
+    img {
+      width: 7rem;
+    }
 }
