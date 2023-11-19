@@ -20,19 +20,19 @@ export class CardComponent {
   }
 
   getBedrooms(): string {
-    const bedroomQuantity = this.property.bedrooms;
+    const bedroomQuantity = this.property?.bedrooms;
     const bedroomText = `${bedroomQuantity} Habitaciones`;
     return bedroomQuantity === 1 ? `${bedroomQuantity} Habitación` : bedroomText;
   }
 
   getBathrooms(): string {
-    const bathroomQuantity = this.property.bathrooms;
+    const bathroomQuantity = this.property?.bathrooms;
     const bathroomText = `${bathroomQuantity} Baños`;
     return bathroomQuantity === 1 ? `${bathroomQuantity} Baño` : bathroomText;
   }
 
   getImageUri(): string {
-    const imageUri = this.property.images[0]?.uri;
+    const imageUri = this.property?.images[0]?.uri;
     return imageUri ?? '../../../assets/default-property-image.jpg'
   }
 }

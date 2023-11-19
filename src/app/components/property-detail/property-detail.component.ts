@@ -58,25 +58,23 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
   }
 
   private getUrlParams(): void {
+    if (this._activatedroute.params) {
     this._activatedroute.params.subscribe((params) => {
       (this.province = params['province']),
         (this.city = params['city']),
         (this.reference = params['ref']);
     });
   }
+  }
 
   getBedrooms(): string {
     const bedroomQuantity = this.detail?.bedrooms;
-    const bedroomText = `${bedroomQuantity} Habitaciones`;
-    return bedroomQuantity === 1
-      ? `${bedroomQuantity} Habitación`
-      : bedroomText;
+    return bedroomQuantity ? `${bedroomQuantity} Habitacion${bedroomQuantity !== 1 ? 'es' : ''}` : '';
   }
-
+  
   getBathrooms(): string {
     const bathroomQuantity = this.detail?.bathrooms;
-    const bathroomText = `${bathroomQuantity} Baños`;
-    return bathroomQuantity === 1 ? `${bathroomQuantity} Baño` : bathroomText;
+    return bathroomQuantity ? `${bathroomQuantity} Baño${bathroomQuantity !== 1 ? 's' : ''}` : '';
   }
 
   goToPropertiesResultPage(): void {
@@ -97,8 +95,7 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
   }
 
   getImageUri(): string {
-    const imageUri = this.detail.images[0]?.uri;
-    return imageUri ?? '../../../assets/default-property-image.jpg'
+    return this.detail?.images[0]?.uri ?? '../../../assets/default-property-image.jpg';
   }
 
   ngOnDestroy(): void {
