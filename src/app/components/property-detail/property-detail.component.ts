@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -22,7 +23,8 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private _propertyDetailService: PropertyDetailService,
-    private _activatedroute: ActivatedRoute
+    private _activatedroute: ActivatedRoute,
+    private _location: Location
   ) {}
 
   ngOnInit(): void {
@@ -56,6 +58,10 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
         (this.city = params['city']),
         (this.reference = params['ref']);
     });
+  }
+
+  goToPropertiesReultPage(): void {
+    this._location.back();
   }
 
   ngOnDestroy(): void {

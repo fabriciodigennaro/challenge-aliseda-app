@@ -54,8 +54,11 @@
     </section>
   </div>
 
-  <!-- TODO add functionality -->
-  <app-button class="back-button" [buttonText]="buttonText"></app-button>
+  <app-button
+    (click)="goToPropertiesReultPage()"
+    class="back-button"
+    [buttonText]="buttonText"
+  ></app-button>
 </article>
 
 <div class="loader">
