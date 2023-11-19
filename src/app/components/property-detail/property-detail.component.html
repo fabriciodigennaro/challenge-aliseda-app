@@ -1,5 +1,8 @@
 <article *ngIf="!isFetching">
-  <img src="../../../assets/mock-img.jpg" alt="foto de vivienda" />
+  <div class="image">
+    <img src="../../../assets/mock-img.jpg" alt="foto de vivienda" />
+    <button><img src="../../../assets/icons/Photo.svg" alt="ver imagenes">{{ detail.imageQuantity }} fotos</button>
+  </div>
   <div class="content">
     <section class="header-text">
       <p class="reference"><strong>Ref: </strong>{{ detail.id }}</p>

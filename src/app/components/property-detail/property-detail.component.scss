@@ -6,16 +6,38 @@ article {
     text-align: start;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
+  .image {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    button {
+      z-index: 2;
+      display: flex;
+      position: relative;
+      left: 0.3125rem;
+      margin-top: -2.75rem;
+      width: 8.5625rem;
+      padding: 0.5rem 1rem;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 0.25rem;
+      border: none;
+      background-color: var(--white);
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.5rem;
+      bottom: 1.25rem;
+    }
   }
 
   .content {
     padding: 20px;
 
     .header-text {
-
       .reference {
         color: var(--Black-Aliceda);
         font-size: 0.75rem;
@@ -119,10 +141,10 @@ article {
 
 .loader {
   display: flex;
-    justify-content: center;
-    margin-top: 5rem;
+  justify-content: center;
+  margin-top: 5rem;
 
-    img {
-      width: 7rem;
-    }
+  img {
+    width: 7rem;
+  }
 }
