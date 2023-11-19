@@ -1,10 +1,23 @@
 .card-container {
-    padding: 0 1.25rem 3rem;
+  padding: 0 1.25rem 3rem;
 
-    .pagination {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 2.5rem;
+  .scroll-to-top {
+    display: flex;
+    justify-content: end;
+
+    button {
+        border: none;
+        background-color: transparent;
+        color: var(--primary-primary-500);
+        transition: none;
+        animation: none;
     }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+  }
 }

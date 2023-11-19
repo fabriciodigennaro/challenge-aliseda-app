@@ -55,6 +55,12 @@ export class PropertiesSearchComponent implements OnInit, OnDestroy {
   }
 
   goToDetail(property: Property): void {
-    this._router.navigate([`detalle/${property.provinceUrl}/${property.cityUrl}/${property.id}`])
+    this._router.navigate([
+      `detalle/${property.provinceUrl}/${property.cityUrl}/${property.id}`,
+    ]);
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
