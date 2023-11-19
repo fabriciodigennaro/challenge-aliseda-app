@@ -32,7 +32,7 @@ export class PropertiesSearchComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
-  getProperties(page: number = 1): void {
+  private getProperties(page: number = 1): void {
     this.isFetching = true;
     const propertySubscription = this._propertyService
       .getProperties(page)
