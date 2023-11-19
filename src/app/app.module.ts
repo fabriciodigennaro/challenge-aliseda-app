@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +13,7 @@ import { PropertyDetailComponent } from './components/property-detail/property-d
 import { CardComponent } from './components/card/card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 import { ThousandsSeparatorPipe } from './utils/pipes/thousands-separator.pipe';
+import { CarouselComponent } from './components/shared/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,13 @@ import { ThousandsSeparatorPipe } from './utils/pipes/thousands-separator.pipe';
     CardComponent,
     ButtonComponent,
     ThousandsSeparatorPipe,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+    BrowserAnimationsModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

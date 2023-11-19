@@ -14,17 +14,19 @@ import { PropertyDetailService } from 'src/app/services/property-detail.service'
 export class PropertyDetailComponent implements OnInit, OnDestroy {
   buttonText: string = 'Volver';
   isFetching: boolean = true;
+  showImagesCarousel: boolean = false;
   detail!: PropertyDetail;
   province: string = '';
   city: string = '';
   reference: string = '';
+  imagesUrls: string[] = [];
 
   private subscriptions: Subscription[] = [];
 
   constructor(
     private _propertyDetailService: PropertyDetailService,
     private _activatedroute: ActivatedRoute,
-    private _location: Location,
+    private _location: Location
   ) {}
 
   ngOnInit(): void {
@@ -44,6 +46,7 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response) => {
           this.detail = response;
+          this.getImages();
           this.isFetching = false;
         },
         error: (error) => {
@@ -63,19 +66,39 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
   }
 
   getBedrooms(): string {
-    const bedroomQuantity = this.detail.bedrooms;
+    const bedroomQuantity = this.detail?.bedrooms;
     const bedroomText = `${bedroomQuantity} Habitaciones`;
-    return bedroomQuantity === 1 ? `${bedroomQuantity} Habitación` : bedroomText;
+    return bedroomQuantity === 1
+      ? `${bedroomQuantity} Habitación`
+      : bedroomText;
   }
 
   getBathrooms(): string {
-    const bathroomQuantity = this.detail.bathrooms;
+    const bathroomQuantity = this.detail?.bathrooms;
     const bathroomText = `${bathroomQuantity} Baños`;
     return bathroomQuantity === 1 ? `${bathroomQuantity} Baño` : bathroomText;
   }
 
-  goToPropertiesReultPage(): void {
+  goToPropertiesResultPage(): void {
     this._location.back();
+  }
+
+  getImages(): void {
+    this.detail?.images.forEach((image) => {
+      const uri = image.uri;
+      if (uri.toLowerCase().endsWith('.jpg')) {
+        this.imagesUrls.push(uri);
+      }
+    });
+  }
+
+  toggleCarousel(): void {
+    this.showImagesCarousel = !this.showImagesCarousel;
+  }
+
+  getImageUri(): string {
+    const imageUri = this.detail.images[0]?.uri;
+    return imageUri ?? '../../../assets/default-property-image.jpg'
   }
 
   ngOnDestroy(): void {

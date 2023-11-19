@@ -1,7 +1,10 @@
 <article *ngIf="!isFetching">
-  <div class="image">
-    <img src="../../../assets/mock-img.jpg" alt="foto de vivienda" />
-    <button><img src="../../../assets/icons/Photo.svg" alt="ver imagenes">{{ detail.imageQuantity }} fotos</button>
+  <div *ngIf="!showImagesCarousel" class="image">
+    <img src={{getImageUri()}} alt="foto de vivienda" />
+    <button *ngIf="imagesUrls.length" (click)="toggleCarousel()"><img src="../../../assets/icons/Photo.svg" alt="ver imagenes">{{ detail.imageQuantity }} fotos</button>
+  </div>
+  <div *ngIf="showImagesCarousel" class="image">
+    <app-carousel [imageUrls]="imagesUrls"></app-carousel>
   </div>
   <div class="content">
     <section class="header-text">
@@ -57,7 +60,7 @@
   </div>
 
   <app-button
-    (click)="goToPropertiesReultPage()"
+    (click)="goToPropertiesResultPage()"
     class="back-button"
     [buttonText]="buttonText"
   ></app-button>
@@ -66,3 +69,4 @@
 <div class="loader">
   <img *ngIf="isFetching" src="../../../assets/loader.svg" alt="loader" />
 </div>
+
