@@ -1,10 +1,21 @@
 <article *ngIf="!isFetching">
-  <div *ngIf="!showImagesCarousel" class="image">
-    <img src={{getImageUri()}} alt="foto de vivienda" />
-    <button *ngIf="imagesUrls.length" (click)="toggleCarousel()"><img src="../../../assets/icons/Photo.svg" alt="ver imagenes">{{ detail.imageQuantity }} fotos</button>
-  </div>
-  <div *ngIf="showImagesCarousel" class="image">
-    <app-carousel [imageUrls]="imagesUrls"></app-carousel>
+  <div class="images-container">
+    <div class="carousel-container">
+      <app-carousel [imageUrls]="imagesUrls"></app-carousel>
+      <button *ngIf="imagesUrls.length">
+        <img src="../../../assets/icons/Photo.svg" alt="ver imagenes" />{{
+          detail.imageQuantity
+        }}
+        fotos
+      </button>
+    </div>
+    <div class="static-images">
+      <img
+        *ngFor="let image of staticImages"
+        src="{{ image }}"
+        alt="imagen de la propiedad"
+      />
+    </div>
   </div>
   <div class="content">
     <section class="header-text">
@@ -69,4 +80,3 @@
 <div class="loader">
   <img *ngIf="isFetching" src="../../../assets/loader.svg" alt="loader" />
 </div>
-

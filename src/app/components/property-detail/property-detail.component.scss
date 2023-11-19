@@ -6,7 +6,11 @@ article {
     text-align: start;
   }
 
-  .image {
+  .images-container {
+    .static-images {
+      display: none;
+    }
+
     img {
       max-width: 100%;
       height: auto;
@@ -136,6 +140,55 @@ article {
   .back-button {
     justify-content: center;
     display: flex;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 95%;
+
+    .images-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+
+      .carousel-container {
+        grid-column: 1 / 2;
+      }
+
+      .static-images {
+        display: grid;
+        grid-template-columns: repeat(2, 49%);
+        grid-template-rows: repeat(2, 48%);
+        column-gap: 2%;
+        row-gap: 4%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .content {
+      width: 62rem;
+      .body-text {
+        .location {
+          span {
+            font-weight: 600;
+          }
+        }
+        .specifications {
+          img {
+            margin: 0 0.5rem 0 2rem;
+            width: 30px;
+
+            &:first-child {
+              margin: 0 0.5rem 0 0;
+            }
+          }
+        }
+      }
+    }
   }
 }
 

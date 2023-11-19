@@ -4,20 +4,20 @@
     [property]="property"
     (click)="goToDetail(property)"
   ></app-card>
-  <div class="scroll-to-top">
-    <button *ngIf="nextPage > 3 && !isFetching" (click)="scrollToTop()">Volver Arriba</button>
-  </div>
-  <div class="pagination">
-    <img
-      *ngIf="isFetching"
-      style="width: 5rem"
-      src="../../../assets/loader.svg"
-      alt="loader"
-    />
-    <app-button
-      *ngIf="!isFetching"
-      (click)="loadMoreResults()"
-      [buttonText]="buttonText"
-    ></app-button>
-  </div>
+</div>
+<div class="scroll-to-top">
+  <button *ngIf="nextPage > 3 && !isFetching" (click)="scrollToTop()">Volver Arriba</button>
+</div>
+<div class="pagination">
+  <img
+    *ngIf="isFetching"
+    style="width: 5rem"
+    src="../../../assets/loader.svg"
+    alt="loader"
+  />
+  <app-button
+    *ngIf="!isFetching"
+    (click)="loadMoreResults()"
+    [buttonText]="buttonText"
+  ></app-button>
 </div>

@@ -1,5 +1,5 @@
 <article class="product-card">
-  <img src="{{ getImageUri() }}" alt="foto de la propiedad" />
+  <img class="cover-photo" src="{{ getImageUri() }}" alt="foto de la propiedad" />
   <div class="body">
     <div class="product-details">
       <div class="display-flex-align-center flex-row-justify-start">
@@ -18,8 +18,8 @@
         </div>
       </div>
 
-      <p class="description">
-        {{ property.metaDescription }}
+      <p class="title">
+        {{ property.title }}
       </p>
 
       <div class="especifications">

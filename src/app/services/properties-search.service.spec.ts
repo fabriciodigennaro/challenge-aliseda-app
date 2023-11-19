@@ -2,12 +2,12 @@ import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
 import { HttpService } from './http.service';
-import { PropertyService } from './property.service';
+import { PropertiesSearchService } from './properties-search.service';
 import { PropertiesSearchApiResponse, Data, ImageResponse } from '../interfaces/properties-search-api-response';
 import { Property, PropertiesSearchResult, Image } from '../interfaces/properties-search-result';
 
 describe('PropertyService', () => {
-  let propertyService: PropertyService;
+  let propertyService: PropertiesSearchService;
   let httpServiceSpy: jasmine.SpyObj<HttpService>;
 
   beforeEach(() => {
@@ -15,12 +15,12 @@ describe('PropertyService', () => {
     
     TestBed.configureTestingModule({
       providers: [
-        PropertyService,
+        PropertiesSearchService,
         { provide: HttpService, useValue: spy },
       ],
     });
 
-    propertyService = TestBed.inject(PropertyService);
+    propertyService = TestBed.inject(PropertiesSearchService);
     httpServiceSpy = TestBed.inject(HttpService) as jasmine.SpyObj<HttpService>;
   });
 

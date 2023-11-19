@@ -26,7 +26,7 @@ export interface Property {
     longitude: number;
     discount: number;
     description: string;
-    metaDescription: string;
+    title: string;
     images: Image[];
   }
   

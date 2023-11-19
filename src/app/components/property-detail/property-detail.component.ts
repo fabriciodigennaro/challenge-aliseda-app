@@ -20,6 +20,7 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
   city: string = '';
   reference: string = '';
   imagesUrls: string[] = [];
+  staticImages: string[] = [];
 
   private subscriptions: Subscription[] = [];
 
@@ -27,7 +28,10 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
     private _propertyDetailService: PropertyDetailService,
     private _activatedroute: ActivatedRoute,
     private _location: Location
-  ) {}
+  ) {
+    window.addEventListener('resize', this.getMediaQuery);
+    this.getMediaQuery();
+  }
 
   ngOnInit(): void {
     this.getUrlParams();
@@ -88,14 +92,27 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
         this.imagesUrls.push(uri);
       }
     });
-  }
-
-  toggleCarousel(): void {
-    this.showImagesCarousel = !this.showImagesCarousel;
+    this.setFirstsFourImages();
   }
 
   getImageUri(): string {
     return this.detail?.images[0]?.uri ?? '../../../assets/default-property-image.jpg';
+  }
+
+  getMediaQuery() {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth >= 1200) {
+     this.showImagesCarousel = true;
+    } 
+  }
+
+  setFirstsFourImages(): void {
+    this.staticImages.push(...this.imagesUrls.slice(0, 4))
+  }
+
+  toggleCarousel(): void {
+    this.showImagesCarousel = !this.showImagesCarousel;
   }
 
   ngOnDestroy(): void {

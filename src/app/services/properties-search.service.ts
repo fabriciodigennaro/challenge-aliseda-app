@@ -16,7 +16,7 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class PropertyService {
+export class PropertiesSearchService {
   constructor(private _httpService: HttpService) {}
 
   getProperties(page: number = 1): Observable<PropertiesSearchResult> {
@@ -56,7 +56,7 @@ export class PropertyService {
       longitude: data.Longitude,
       discount: data.DescuentoPrecio,
       description: data.Description,
-      metaDescription: data.Metadescription,
+      title: data.Metadescription,
       images: data.imagenes.map((images) => this.mapImagenesToImages(images)),
     };
   }

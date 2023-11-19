@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Property } from 'src/app/interfaces/properties-search-result';
-import { PropertyService } from 'src/app/services/property.service';
+import { PropertiesSearchService } from 'src/app/services/properties-search.service';
 
 @Component({
   selector: 'app-properties-search',
@@ -18,7 +18,7 @@ export class PropertiesSearchComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   constructor(
-    private _propertyService: PropertyService,
+    private _propertiesSearchService: PropertiesSearchService,
     private _router: Router
   ) {
     this.properties = [];
@@ -34,7 +34,7 @@ export class PropertiesSearchComponent implements OnInit, OnDestroy {
 
   private getProperties(page: number = 1): void {
     this.isFetching = true;
-    const propertySubscription = this._propertyService
+    const propertySubscription = this._propertiesSearchService
       .getProperties(page)
       .subscribe({
         next: (response) => {
