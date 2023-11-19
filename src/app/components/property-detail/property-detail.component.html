@@ -1,13 +1,16 @@
 <article *ngIf="!isFetching">
   <div class="images-container">
-    <div class="carousel-container">
+    <div *ngIf="propertyContainsPhotos()" class="carousel-container">
       <app-carousel [imageUrls]="imagesUrls"></app-carousel>
-      <button *ngIf="imagesUrls.length">
+      <button>
         <img src="../../../assets/icons/Photo.svg" alt="ver imagenes" />{{
           detail.imageQuantity
         }}
         fotos
       </button>
+    </div>
+    <div *ngIf="!propertyContainsPhotos()" class="default-photo">
+      <img src="{{ defaultImage }}" alt="sin foto">
     </div>
     <div class="static-images">
       <img

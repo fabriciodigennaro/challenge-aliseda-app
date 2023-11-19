@@ -21,6 +21,7 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
   reference: string = '';
   imagesUrls: string[] = [];
   staticImages: string[] = [];
+  defaultImage: string = '../../../assets/default-property-image.jpg';
 
   private subscriptions: Subscription[] = [];
 
@@ -63,22 +64,26 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
 
   private getUrlParams(): void {
     if (this._activatedroute.params) {
-    this._activatedroute.params.subscribe((params) => {
-      (this.province = params['province']),
-        (this.city = params['city']),
-        (this.reference = params['ref']);
-    });
-  }
+      this._activatedroute.params.subscribe((params) => {
+        (this.province = params['province']),
+          (this.city = params['city']),
+          (this.reference = params['ref']);
+      });
+    }
   }
 
   getBedrooms(): string {
     const bedroomQuantity = this.detail?.bedrooms;
-    return bedroomQuantity ? `${bedroomQuantity} Habitacion${bedroomQuantity !== 1 ? 'es' : ''}` : '';
+    return bedroomQuantity
+      ? `${bedroomQuantity} Habitacion${bedroomQuantity !== 1 ? 'es' : ''}`
+      : '';
   }
-  
+
   getBathrooms(): string {
     const bathroomQuantity = this.detail?.bathrooms;
-    return bathroomQuantity ? `${bathroomQuantity} Baño${bathroomQuantity !== 1 ? 's' : ''}` : '';
+    return bathroomQuantity
+      ? `${bathroomQuantity} Baño${bathroomQuantity !== 1 ? 's' : ''}`
+      : '';
   }
 
   goToPropertiesResultPage(): void {
@@ -92,23 +97,29 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
         this.imagesUrls.push(uri);
       }
     });
-    this.setFirstsFourImages();
+    this.setStaticImages();
   }
 
   getImageUri(): string {
-    return this.detail?.images[0]?.uri ?? '../../../assets/default-property-image.jpg';
+    return this.detail?.images[0]?.uri ?? this.defaultImage;
   }
 
   getMediaQuery() {
     const windowWidth = window.innerWidth;
 
     if (windowWidth >= 1200) {
-     this.showImagesCarousel = true;
-    } 
+      this.showImagesCarousel = true;
+    }
   }
 
-  setFirstsFourImages(): void {
-    this.staticImages.push(...this.imagesUrls.slice(0, 4))
+  propertyContainsPhotos(): boolean {
+    return this.imagesUrls.length > 0;
+  }
+
+  setStaticImages(): void {
+    if (this.imagesUrls.length > 1) {
+      this.staticImages.push(...this.imagesUrls.slice(1, 5));
+    }
   }
 
   toggleCarousel(): void {
