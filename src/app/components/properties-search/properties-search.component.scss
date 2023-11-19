@@ -1,0 +1,32 @@
+.card-container {
+  padding: 0 1.25rem;
+
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; 
+  }
+
+}
+.scroll-to-top {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1.25rem;
+
+
+  button {
+      border: none;
+      background-color: transparent;
+      color: var(--primary-primary-500);
+      transition: none;
+      animation: none;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  margin-top: 1.5rem;
+}

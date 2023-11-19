@@ -1,28 +1,31 @@
 <article class="product-card">
-  <img src="../../../assets/mock-img.jpg" alt="foro de la propiedad" />
-
+  <img class="cover-photo" src="{{ getImageUri() }}" alt="foto de la propiedad" />
   <div class="body">
     <div class="product-details">
-      <div class="price">
-        <div class="actual-price">1.051.410 €</div>
-        <div class="previous-price text-red">1.105.300 €</div>
-        <div class="discount text-red">
+      <div class="display-flex-align-center flex-row-justify-start">
+        <div class="actual-price">
+          {{ property.price | thousandsSeparator }} €
+        </div>
+        <div *ngIf="property.isPriceReduced" class="display-flex-align-center text-red">
+          <div class="previous-price">
+            {{ property.previousPrice | thousandsSeparator }} €
+          </div>
           <img
             src="../../../assets/icons/arrow_downward_red.svg"
             alt="icono de descuento"
           />
-          <p>5%</p>
+          <p>{{ property.discount }}%</p>
         </div>
       </div>
 
-      <p class="description">
-        Piso en venta en calle Poeta Federico Garcia Lorca, València, Valencia
+      <p class="title">
+        {{ property.title }}
       </p>
 
       <div class="especifications">
-        <p class="surface">131 m²</p>
-        <p class="rooms">2 Habitaciones</p>
-        <p class="bathrooms">2 Baños</p>
+        <p class="surface">{{ property.totalSurface }} m²</p>
+        <p class="rooms">{{ getBedrooms() }}</p>
+        <p class="bathrooms">{{ getBathrooms() }}</p>
       </div>
     </div>
   </div>

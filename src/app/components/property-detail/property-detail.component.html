@@ -1,0 +1,85 @@
+<article *ngIf="!isFetching">
+  <div class="images-container">
+    <div *ngIf="propertyContainsPhotos()" class="carousel-container">
+      <app-carousel [imageUrls]="imagesUrls"></app-carousel>
+      <button>
+        <img src="../../../assets/icons/Photo.svg" alt="ver imagenes" />{{
+          detail.imageQuantity
+        }}
+        fotos
+      </button>
+    </div>
+    <div *ngIf="!propertyContainsPhotos()" class="default-photo">
+      <img src="{{ defaultImage }}" alt="sin foto">
+    </div>
+    <div class="static-images">
+      <img
+        *ngFor="let image of staticImages"
+        src="{{ image }}"
+        alt="imagen de la propiedad"
+      />
+    </div>
+  </div>
+  <div class="content">
+    <section class="header-text">
+      <p class="reference"><strong>Ref: </strong>{{ detail.id }}</p>
+      <div class="display-flex-align-center flex-row-justify-start price-box">
+        <div class="price">{{ detail.price | thousandsSeparator }} €</div>
+        <div
+          *ngIf="detail.isPriceReduced"
+          class="display-flex-align-center text-red"
+        >
+          <div class="previous-price">
+            {{ detail.previousPrice | thousandsSeparator }} €
+          </div>
+          <img
+            src="../../../assets/icons/arrow_downward_red.svg"
+            alt="icono de descuento"
+          />
+          <p>{{ detail.discount }}%</p>
+        </div>
+      </div>
+      <p class="fees">Gastos e impuestos no incluidos</p>
+      <p class="title">
+        {{ detail.title }}
+      </p>
+    </section>
+
+    <section class="body-text">
+      <div class="location">
+        <img src="../../../assets/icons/location.svg" alt="ubicaion" />
+        <span
+          >{{ detail.province | titlecase }} ·
+          {{ detail.city | titlecase }}</span
+        >
+      </div>
+
+      <div class="specifications">
+        <img src="../../../assets/icons/dimensions.svg" alt="dimesiones" />
+        <span>{{ detail.constructedArea }} m²</span>
+        <img src="../../../assets/icons/bedroom.svg" alt="habitaciones" />
+        <span>{{ getBedrooms() }}</span>
+        <img src="../../../assets/icons/bathroom.svg" alt="baños" />
+        <span>{{ getBathrooms() }}</span>
+      </div>
+    </section>
+
+    <section class="description-box">
+      <p class="header">Descripción</p>
+
+      <p class="description">
+        {{ detail.description }}
+      </p>
+    </section>
+  </div>
+
+  <app-button
+    (click)="goToPropertiesResultPage()"
+    class="back-button"
+    [buttonText]="buttonText"
+  ></app-button>
+</article>
+
+<div class="loader">
+  <img *ngIf="isFetching" src="../../../assets/loader.svg" alt="loader" />
+</div>

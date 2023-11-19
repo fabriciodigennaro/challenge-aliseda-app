@@ -1,0 +1,10 @@
+<div class="carousel-container">
+    <button class="nav-button prev" (click)="showPreviousImage()">
+      <img src="../../../../assets/icons/arrow_white.svg" alt="imagen anterior">
+    </button>
+    <img [@imageAnimation]="currentIndex" [src]="imageUrls[currentIndex]" alt="Image">
+    <button class="nav-button next" (click)="showNextImage()">
+        <img src="../../../../assets/icons/arrow_white.svg" alt="imagen siguente">
+    </button>
+  </div>
+  

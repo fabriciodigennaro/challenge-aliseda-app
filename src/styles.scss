@@ -1,5 +1,5 @@
 * {
-font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -13,13 +13,33 @@ p {
 
 :root {
   --primary-primary-500: #de0e48;
+  --primary-primary-200: #a60b3c;
   --grey-grey-300: #7e7e7e;
-  --grey-light: #C3C3C3;
+  --grey-light: #c3c3c3;
   --grey-grey-25: #f7f7f7;
   --grey-grey-800: #222;
   --Black-Aliceda: #333;
-  --grey-grey-500: #3E3E3E;
+  --grey-grey-500: #3e3e3e;
   --white: #ffffff;
   --black: #000000;
   --red-red-500: #dc362e;
+}
+
+.text-red {
+  color: var(--red-red-500);
+}
+
+.previous-price {
+  text-decoration: line-through;
+  margin-right: 0.25rem;
+}
+
+.display-flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-row-justify-start {
+  flex-direction: row;
+  justify-content: flex-start;
 }
