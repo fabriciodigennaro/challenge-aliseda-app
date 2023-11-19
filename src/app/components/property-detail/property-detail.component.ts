@@ -24,12 +24,14 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
   constructor(
     private _propertyDetailService: PropertyDetailService,
     private _activatedroute: ActivatedRoute,
-    private _location: Location
+    private _location: Location,
   ) {}
 
   ngOnInit(): void {
     this.getUrlParams();
     this.getPropertyDetail(this.province, this.city, this.reference);
+    this.getBedrooms();
+    this.getBathrooms();
   }
 
   private getPropertyDetail(
@@ -58,6 +60,18 @@ export class PropertyDetailComponent implements OnInit, OnDestroy {
         (this.city = params['city']),
         (this.reference = params['ref']);
     });
+  }
+
+  getBedrooms(): string {
+    const bedroomQuantity = this.detail.bedrooms;
+    const bedroomText = `${bedroomQuantity} Habitaciones`;
+    return bedroomQuantity === 1 ? `${bedroomQuantity} Habitación` : bedroomText;
+  }
+
+  getBathrooms(): string {
+    const bathroomQuantity = this.detail.bathrooms;
+    const bathroomText = `${bathroomQuantity} Baños`;
+    return bathroomQuantity === 1 ? `${bathroomQuantity} Baño` : bathroomText;
   }
 
   goToPropertiesReultPage(): void {

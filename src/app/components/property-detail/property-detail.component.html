@@ -38,10 +38,9 @@
         <img src="../../../assets/icons/dimensions.svg" alt="dimesiones" />
         <span>{{ detail.constructedArea }} m²</span>
         <img src="../../../assets/icons/bedroom.svg" alt="habitaciones" />
-        <!-- TODO create method to generate correct copy -->
-        <span>{{ detail.bedrooms }} habitaciones</span>
+        <span>{{ getBedrooms() }}</span>
         <img src="../../../assets/icons/bathroom.svg" alt="baños" />
-        <span>{{ detail.bathrooms }} baños</span>
+        <span>{{ getBathrooms() }}</span>
       </div>
     </section>
 
