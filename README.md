@@ -69,5 +69,4 @@ ng help
 ```
 You can also refer to the Angular CLI Overview and Command Reference page.
 
-
 Feel free to customize this README to include any additional information specific to your project. Happy coding!
