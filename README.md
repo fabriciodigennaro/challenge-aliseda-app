@@ -7,7 +7,19 @@ Welcome to the AlisedaApp project, built with Angular CLI version 16.2.2.
 ### Prerequisites
 Make sure you have Node.js installed along with Angular version 16.2.2.
 
-### Local Environment Setup
+### Installing Local Packages
+After downloading the repository, follow these steps to install the necessary packages locally:
+
+1. Open your terminal and navigate to the project's root directory.
+2. Run the following command to install Node.js packages specified in the `package.json` file:
+    ```
+    npm install
+    ```
+   This command will download and install all the dependencies required for the project.
+
+3. Once the installation is complete, you are ready to start working with the project locally.
+
+### Local Environment Setup 
 1. Create a local environment file named "environment.dev.ts" to configure your variables. You can use "environment.example.ts" as a guide.
 2. Open your terminal and run the following command:
     ```
