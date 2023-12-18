@@ -95,3 +95,18 @@ ng help
 You can also refer to the Angular CLI Overview and Command Reference page.
 
 Feel free to customize this README to include any additional information specific to your project. Happy coding!
+
+### Run application locally using Docker
+
+- Execute the following commands:
+
+```
+docker build -t heroesmanagerapp .
+docker run -p 4200:80 heroesmanagerapp
+```
+
+Navigate to http://localhost:4200/ in your browser.
+
+### View app on web
+
+Navigate to https://heroes-manager-app.netlify.app in your browser.
