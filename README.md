@@ -109,4 +109,4 @@ Navigate to http://localhost:4200/ in your browser.
 
 ### View app on web
 
-Navigate to https://heroes-manager-app.netlify.app in your browser.
+Navigate to https://challenge-aliseda-propiedades.netlify.app in your browser.
